@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BizUp — Visibilité locale, simple & efficace</title>
+  <meta name="description" content="BizUp : visibilité locale pour entreprises. Pack clé en main : Google, réseaux, avis clients, mini-site. Simple, rapide, efficace." />
+  <style>
+    :root{
+      --bg:#f8fafc;          /* slate-50 */
+      --text:#0f172a;        /* slate-900 */
+      --muted:#475569;       /* slate-600 */
+      --card:#ffffff;        /* white */
+      --border:#e5e7eb;      /* gray-200 */
+      --brand:#16a34a;       /* green-600 */
+      --brand-700:#15803d;   /* green-700 */
+      --accent:#2563eb;      /* blue-600 */
+      --accent-700:#1d4ed8;  /* blue-700 */
+      --shadow: 0 10px 30px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800}
+    .logo-badge{width:40px;height:40px;border-radius:10px;background:conic-gradient(from 160deg at 50% 50%, #22c55e, #3b82f6, #22c55e);display:grid;place-items:center;box-shadow:var(--shadow)}
+    .nav a{opacity:.9;padding:10px 12px;border-radius:10px}
+    .nav a:hover{background:#00000008}
+    /* HERO */
+    .hero{position:relative;overflow:hidden;margin-top:20px;border-radius:22px}
+    .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:center;padding:48px 38px;background:linear-gradient(135deg,#1d4ed8,#22c55e);color:#ffffff}
+    @media (max-width: 980px){.hero-inner{grid-template-columns:1fr;padding:40px 24px}}
+    .hero h1{font-size:clamp(28px,5vw,48px);line-height:1.1;margin:0 0 10px}
+    .hero p{font-size:clamp(15px,2.2vw,19px);opacity:.95;margin:0 0 18px}
+    .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;border:2px solid #ffffffaa;font-weight:800;transition:.2s;cursor:pointer;backdrop-filter:saturate(120%) blur(2px)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-white{background:#ffffff;color:#0f172a;border-color:#ffffff}
+    .btn-ghost{background:transparent;color:#ffffff;border-color:#ffffff}
+    .hero-illu{justify-self:center;align-self:stretch;width:100%;max-width:540px}
+    .hero-illu svg{display:block;width:100%;height:auto}
+    .wave{position:absolute;left:0;right:0;bottom:-1px}
+    /* FEATURES cards (like your screenshot 2) */
+    .features{margin-top:34px}
+    .features h2{font-size:28px;margin:0 0 6px}
+    .features .lead{color:var(--muted);margin:0 0 16px}
+    .cards{display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
+    @media (max-width: 1100px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 620px){.cards{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:18px}
+    .card .icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;margin-bottom:6px}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+    .i-blue{background:#dbeafe;color:#1d4ed8}
+    .i-green{background:#dcfce7;color:#15803d}
+    .i-amber{background:#fef3c7;color:#92400e}
+    .i-violet{background:#ede9fe;color:#6d28d9}
+    /* FORM section preserved */
+    .section{margin-top:36px}
+    .section h2{margin:0 0 12px;font-size:26px}
+    .lead{color:var(--muted)}
+    form{display:grid;gap:12px;margin-top:12px}
+    label{font-weight:700}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#ffffff;color:var(--text)}
+    textarea{min-height:120px;resize:vertical}
+    .form-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-accent{background:var(--accent);color:white;border:1px solid var(--accent)}
+    .btn-outline{background:#ffffff;color:var(--text);border:1px solid var(--border)}
+    footer{margin-top:40px;padding:22px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#475569}
+    /* Sticky bottom CTA */
+    .sticky-cta{position:fixed;left:0;right:0;bottom:16px;display:flex;justify-content:center;pointer-events:none}
+    .sticky-cta .wrap{display:flex;gap:10px;background:#fffffff2;border:1px solid var(--border);border-radius:14px;padding:8px;box-shadow:var(--shadow);backdrop-filter:blur(6px);pointer-events:auto}
+    .sticky-cta .wrap a{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px;font-weight:800;border:1px solid var(--border)}
+    .sticky-cta .whatsapp{background:var(--brand);color:white;border-color:#16a34a}
+    .sticky-cta .proposition{background:#111827;color:#ffffff;border-color:#111827}
+    .floating-space{height:96px}
+    svg{display:block;max-width:100%;height:auto}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-badge" aria-hidden="true"><span style="font-weight:900">▲</span></div>
+        <div>
+          <div style="font-size:20px">BizUp</div>
+          <div style="color:var(--muted);font-weight:600;font-size:13px">Visibilité locale — simple & efficace</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#offre">Offre</a>
+        <a href="#proposition">Proposition</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO compact (like your 3rd screenshot style) -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <h1>BizUp — Visibilité & image, sans effort</h1>
+          <p>Chez BizUp, nous aidons les entreprises à renforcer leur visibilité et leur image de marque. Grâce à une approche clé en main, simple et rapide à déployer, nous vous libérons des tâches sans valeur ajoutée pour que vous vous concentriez sur l’essentiel : votre activité et votre croissance.</p>
+          <div class="actions">
+            <a class="btn btn-white" href="https://wa.me/33634086084?text=Bonjour%20BizUp%2C%20je%20souhaite%20des%20informations%20sur%20vos%20offres." target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a class="btn btn-ghost" href="mailto:alexandretorranopro@gmail.com?subject=Demande%20devis%20BizUp&body=Bonjour%20BizUp%2C%0A%0AJe%20souhaite%20un%20devis%20pour%20%5Bpr%C3%A9ciser%20votre%20projet%5D.%0A%0ACordialement%2C%0A%5BNom%5D">✉️ Devis par email</a>
+          </div>
+        </div>
+        <!-- Minimal soft mockup (small) -->
+        <div class="hero-illu" aria-hidden="true">
+          <svg viewBox="0 0 520 360">
+            <defs>
+              <linearGradient id="glass" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+                <stop offset="1" stop-color="#eaf2ff" stop-opacity=".85"/>
+              </linearGradient>
+            </defs>
+            <rect x="20" y="20" width="480" height="320" rx="18" fill="url(#glass)" opacity=".9"/>
+            <rect x="44" y="56" width="260" height="18" rx="9" fill="#c7d2fe"/>
+            <rect x="44" y="86" width="200" height="12" rx="6" fill="#dbeafe"/>
+            <rect x="44" y="120" width="150" height="12" rx="6" fill="#e2e8f0"/>
+            <rect x="44" y="150" width="120" height="12" rx="6" fill="#e2e8f0"/>
+            <rect x="44" y="260" width="120" height="36" rx="10" fill="#16a34a"/>
+            <circle cx="410" cy="110" r="28" fill="#1d4ed8" opacity=".18"/>
+            <circle cx="410" cy="110" r="10" fill="#1d4ed8" opacity=".4"/>
+            <rect x="320" y="240" width="140" height="20" rx="10" fill="#60a5fa" opacity=".6"/>
+          </svg>
+        </div>
+      </div>
+      <!-- subtle wave -->
+      <svg class="wave" viewBox="0 0 1200 70" preserveAspectRatio="none">
+        <path d="M0,40 C200,80 400,0 600,30 C800,60 1000,20 1200,50 L1200,70 L0,70 Z" fill="#f8fafc"></path>
+      </svg>
+    </section>
+
+    <!-- FEATURES grid (like your 2nd screenshot) -->
+    <section id="offre" class="features">
+      <h2>Ce que nous faisons</h2>
+      <p class="lead">Une offre simple, packagée, et opérationnelle en quelques jours.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="icon i-blue">📇</div>
+          <h3>Google Business Profile</h3>
+          <p>Création/optimisation de votre fiche Google : infos, catégories, photos, prise de rendez‑vous.</p>
+        </div>
+        <div class="card">
+          <div class="icon i-amber">💬</div>
+          <h3>Réseaux sociaux</h3>
+          <p>Paramétrage pro, modèles de posts, highlights, messagerie et bonnes pratiques.</p>
+        </div>
+        <div class="card">
+          <div class="icon i-green">⭐</div>
+          <h3>Réputation & avis</h3>
+          <p>Mise en place de la collecte (QR, emails types) et réponses pour améliorer le classement.</p>
+        </div>
+        <div class="card">
+          <div class="icon i-violet">🖥️</div>
+          <h3>Mini‑site vitrine</h3>
+          <p>Une page claire et rapide : présentation, coordonnées, bouton WhatsApp, formulaire.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM preserved -->
+    <section id="proposition" class="section">
+      <h2>Recevoir une proposition</h2>
+      <p class="lead" style="margin-bottom:14px">Dites‑nous qui vous êtes et votre besoin : on vous envoie une proposition simple et claire.</p>
+      <form id="formDevis">
+        <div>
+          <label for="raison">Raison sociale</label>
+          <input id="raison" name="raison" type="text" placeholder="Ex. Dupont SARL" required />
+        </div>
+        <div>
+          <label for="projet">Projet</label>
+          <textarea id="projet" name="projet" placeholder="Décrivez brièvement votre besoin (ex. lancement, refonte, Google Business, avis…)" required></textarea>
+        </div>
+        <div>
+          <label for="email">E‑mail</label>
+          <input id="email" name="email" type="email" placeholder="vous@entreprise.fr" required />
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-accent" type="submit">Envoyer</button>
+          <a class="btn btn-outline" href="mailto:alexandretorranopro@gmail.com?subject=Demande%20de%20proposition%20%E2%80%94%20BizUp&body=Raison%20sociale%20:%0AProjet%20:%0AE-mail%20:">✉️ Envoyer par e‑mail</a>
+        </div>
+        <p class="lead" style="font-size:13px;color:#64748b">En cliquant sur « Envoyer », votre application mail s’ouvrira avec les informations pré‑remplies.</p>
+      </form>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p class="lead">Un message suffit pour démarrer.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-white" style="border-color:var(--border)" href="mailto:alexandretorranopro@gmail.com?subject=Contact%20BizUp">✉️ alexandretorranopro@gmail.com</a>
+        <a class="btn btn-white" style="border-color:var(--border)" target="_blank" rel="noopener" href="https://wa.me/33634086084">💬 WhatsApp : 06 34 08 60 84</a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© BizUp — 2025</div>
+      <div>Fait avec ❤️ pour les pros locaux</div>
+    </footer>
+  </div>
+
+  <div class="floating-space" aria-hidden="true"></div>
+  <div class="sticky-cta" role="region" aria-label="Actions rapides">
+    <div class="wrap">
+      <a class="whatsapp" href="https://wa.me/33634086084?text=Bonjour%20BizUp%2C%20j%E2%80%99aimerais%20parler%20de%20mon%20projet." target="_blank" rel="noopener">💬 Parler sur WhatsApp</a>
+      <a class="proposition" href="#proposition">📝 Recevoir une proposition</a>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:"smooth", block:"start"});
+        }
+      });
+    });
+    // Form -> open default mail client prefilled
+    const form = document.getElementById('formDevis');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const raison = encodeURIComponent(document.getElementById('raison').value.trim());
+      const projet = encodeURIComponent(document.getElementById('projet').value.trim());
+      const email  = encodeURIComponent(document.getElementById('email').value.trim());
+      const subject = encodeURIComponent('Demande de proposition — BizUp');
+      const body = `Raison sociale : ${raison}\nProjet : ${projet}\nE-mail : ${email}`;
+      const mailto = `mailto:alexandretorranopro@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
